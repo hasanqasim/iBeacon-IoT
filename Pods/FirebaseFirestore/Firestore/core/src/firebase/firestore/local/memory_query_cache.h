@@ -17,6 +17,12 @@
 #ifndef FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MEMORY_QUERY_CACHE_H_
 #define FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MEMORY_QUERY_CACHE_H_
 
+#if !defined(__OBJC__)
+#error "For now, this file must only be included by ObjC source files."
+#endif  // !defined(__OBJC__)
+
+#import <Foundation/Foundation.h>
+
 #include <cstdint>
 #include <unordered_map>
 #include <utility>
@@ -26,17 +32,22 @@
 #include "Firestore/core/src/firebase/firestore/model/document_key_set.h"
 #include "Firestore/core/src/firebase/firestore/model/snapshot_version.h"
 #include "Firestore/core/src/firebase/firestore/model/types.h"
+#include "Firestore/core/src/firebase/firestore/objc/objc_compatibility.h"
+
+@class FSTLocalSerializer;
+@class FSTMemoryPersistence;
+
+NS_ASSUME_NONNULL_BEGIN
 
 namespace firebase {
 namespace firestore {
 namespace local {
 
-class MemoryPersistence;
 class Sizer;
 
 class MemoryQueryCache : public QueryCache {
  public:
-  explicit MemoryQueryCache(MemoryPersistence* persistence);
+  explicit MemoryQueryCache(FSTMemoryPersistence* persistence);
 
   // Target-related methods
   void AddTarget(const QueryData& query_data) override;
@@ -84,8 +95,8 @@ class MemoryQueryCache : public QueryCache {
   void SetLastRemoteSnapshotVersion(model::SnapshotVersion version) override;
 
  private:
-  // This instance is owned by MemoryPersistence.
-  MemoryPersistence* persistence_;
+  // This instance is owned by FSTMemoryPersistence; avoid a retain cycle.
+  __weak FSTMemoryPersistence* persistence_;
 
   /** The highest sequence number encountered */
   model::ListenSequenceNumber highest_listen_sequence_number_;
@@ -107,5 +118,7 @@ class MemoryQueryCache : public QueryCache {
 }  // namespace local
 }  // namespace firestore
 }  // namespace firebase
+
+NS_ASSUME_NONNULL_END
 
 #endif  // FIRESTORE_CORE_SRC_FIREBASE_FIRESTORE_LOCAL_MEMORY_QUERY_CACHE_H_

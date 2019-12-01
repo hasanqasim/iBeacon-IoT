@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>419591163673-rgkfc9qmdins6v0sle45bup51eh9a8a6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.419591163673-rgkfc9qmdins6v0sle45bup51eh9a8a6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAOntHI1oZYoIP92w08dPkJtIfNoCZFAi8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>419591163673</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.monash.TestiBeacon</string>
+	<key>PROJECT_ID</key>
+	<string>navigatemybank</string>
+	<key>STORAGE_BUCKET</key>
+	<string>navigatemybank.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:419591163673:ios:d7a6791f38f37ae8b13f88</string>
+	<key>DATABASE_URL</key>
+	<string>https://navigatemybank.firebaseio.com</string>
+</dict>
+</plist>
